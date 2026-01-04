@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You My Love Tawanya Sethi❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff4d6d, #ff8fab);
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+        text-align: center;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.15);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        max-width: 420px;
+        z-index: 10;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        min-height: 80px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        background: white;
+        color: #ff4d6d;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #ffe3ea;
+    }
+
+    .heart {
+        position: absolute;
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        from {
+            transform: translateY(-10vh);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(110vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1 id="title">Hey You Mera Kaka ❤️</h1>
+    <p id="HAPPY  BIRTHDAY MY LOVE"></p>
+    <button onclick="startLove()">Click Me</button>
+</div>
+
+<!-- 🎵 Optional Music (put your mp3 file name here) -->
+<audio id="music" loop>
+    <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const text = 
+"I made this little page just for you.\n\n" +
+"Every moment with you feels special.\n" +
+"You make my heart smile.\n\n" +
+"Will you always be mine? ❤️";
+
+let index = 0;
+
+function startLove() {
+    document.getElementById("music").play();
+    document.getElementById("title").innerText = "I Like You ❤️";
+    document.getElementById("message").innerText = "";
+    index = 0;
+    typeEffect();
+}
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("message").innerText += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+// Falling hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 300);
+</script>
+
+</body>
+</html>
